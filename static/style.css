@@ -1,0 +1,25 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #f2f5fa; color: #202b3d; font: 16px/1.5 Arial, sans-serif; }
+.container { max-width: 1060px; margin: 44px auto; padding: 0 20px; }
+header { margin-bottom: 26px; }
+h1 { margin: 0 0 4px; font-size: 2rem; }
+header p, .hint, footer { color: #58677b; }
+.panel { background: white; border: 1px solid #dce4ed; border-radius: 12px; padding: 25px; margin: 20px 0; box-shadow: 0 3px 12px #1a304008; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+label { display: flex; flex-direction: column; gap: 7px; font-weight: 600; }
+input, select { min-width: 0; width: 100%; padding: 11px 12px; border-radius: 7px; border: 1px solid #b9c5d3; background: white; color: #202b3d; font: inherit; }
+input:focus, select:focus { outline: 2px solid #a9cafa; border-color: #2262b7; }
+button { margin-top: 22px; padding: 12px 25px; border: 0; border-radius: 7px; background: #185fb0; color: white; font: inherit; font-weight: bold; cursor: pointer; }
+button:hover { background: #134b8b; }
+.errors { margin-top: 20px; padding: 14px 18px; border-radius: 7px; background: #fff2f0; border: 1px solid #f3bbb4; color: #822c24; }
+.errors ul { margin: 8px 0 0; padding-left: 20px; }
+.chart h2 { margin: 0; font-size: 1.3rem; }
+footer { margin: 25px 0; font-size: .85rem; }
+@media (max-width: 650px) { .grid { grid-template-columns: 1fr; } .container { margin: 20px auto; } .panel { padding: 18px; } }
+form { background: white; border: 1px solid #dce4ed; border-radius: 12px; padding: 24px; display: grid; gap: 8px; }
+form > label { margin-top: 8px; }
+.date-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 8px; }
+.date-fields label { display: block; margin-bottom: 8px; }
+.error { padding: 14px 18px; background: #fff2f0; border: 1px solid #f3bbb4; color: #822c24; border-radius: 8px; }
+.chart { background: white; padding: 14px; border: 1px solid #dce4ed; border-radius: 12px; margin-top: 20px; }
+@media(max-width:650px){ .date-fields { grid-template-columns: 1fr; } }

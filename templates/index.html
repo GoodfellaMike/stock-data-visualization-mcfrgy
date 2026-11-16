@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stock Data Visualization</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <h1>Stock Data Visualization</h1>
+    <p>Choose a stock, chart type, time series, and date range to see its closing prices.</p>
+    <form method="post" novalidate>
+      <label for="symbol">Stock symbol</label>
+      <select id="symbol" name="symbol" required>
+        <option value="">Select a stock</option>
+        {% for symbol, name in stocks %}
+        <option value="{{ symbol }}" {% if fields.symbol == symbol %}selected{% endif %}>{{ symbol }} — {{ name }}</option>
+        {% endfor %}
+      </select>
+      <label for="chart_type">Chart type</label>
+      <select id="chart_type" name="chart_type" required>
+        {% for key, name in chart_types.items() %}
+        <option value="{{ key }}" {% if fields.chart_type == key %}selected{% endif %}>{{ name }}</option>
+        {% endfor %}
+      </select>
+      <label for="time_series">Time series</label>
+      <select id="time_series" name="time_series" required>
+        {% for key, name in time_series.items() %}
+        <option value="{{ key }}" {% if fields.time_series == key %}selected{% endif %}>{{ name }}</option>
+        {% endfor %}
+      </select>
+      <div class="date-fields">
+        <div><label for="start_date">Start date</label><input type="date" id="start_date" name="start_date" value="{{ fields.start_date }}" required></div>
+        <div><label for="end_date">End date</label><input type="date" id="end_date" name="end_date" value="{{ fields.end_date }}" required></div>
+      </div>
+      <button type="submit">Generate Chart</button>
+    </form>
+    {% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+    {% if chart_html %}<section class="chart">{{ chart_html | safe }}</section>{% endif %}
+  </main>
+</body>
+</html>
